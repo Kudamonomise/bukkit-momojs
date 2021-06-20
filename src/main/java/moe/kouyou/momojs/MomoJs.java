@@ -1,4 +1,4 @@
-package moe.kouyou.stablejs;
+package moe.kouyou.momojs;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,36 +11,13 @@ import java.util.stream.Stream;
 
 import sun.misc.Unsafe;
 
-public class StableJs extends JavaPlugin{
-  
-  private static final ScriptEngineFactory factory = new ProxyScriptEngineFactory();
-  
-  public ScriptEngineFactory getNashornFactory(){
-    return factory;
-  }
-  
-  public ScriptEngine getNashornEngine(){
-    return factory.getScriptEngine();
-  }
-  
-  public Invocable getAsInvocable(){
-    return (Invocable) factory.getScriptEngine();
-  }
-  
-  public Compilable getAsCompilable(){
-    return (Compilable) factory.getScriptEngine();
-  }
-  
+public final class MomoJs extends JavaPlugin{
   static{
     try{
-      Module om = StableJs.class.getModule();
-      setClassModule(StableJs.class, Object.class.getModule());
-      Unsafe u = getUnsafe();
-      MethodHandles.Lookup l = getLookup();
+      Module om = MomoJs.class.getModule();
+      setClassModule(MomoJs.class, Object.class.getModule());
       Field jlas = Class.forName("jdk.internal.access.SharedSecrets").getDeclaredField("javaLangAccess");
       jlas.setAccessible(true);
-      Object jla = jlas.get(null);
-      Class jlac = Class.forName("jdk.internal.access.JavaLangAccess");
       Set<ModuleLayer> mls = new HashSet<>();
       Method gsc = ModuleLayer.class.getDeclaredMethod("layers", ClassLoader.class);
       gsc.setAccessible(true);
@@ -72,7 +49,7 @@ public class StableJs extends JavaPlugin{
       for(Object sc : scs){
         ap.invoke(sc, om, ScriptEngineFactory.class, ProxyScriptEngineFactory.class);
       }
-      setClassModule(StableJs.class, om);
+      setClassModule(MomoJs.class, om);
     }catch(Throwable t){
       t.printStackTrace();
       throw new RuntimeException(t);
@@ -136,5 +113,4 @@ public class StableJs extends JavaPlugin{
   public void onDisable(){
     getLogger().info("js engine provider is disabled");
   }
-  
 }

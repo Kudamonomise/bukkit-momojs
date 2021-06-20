@@ -1,5 +1,5 @@
-name: stablejs
-main: moe.kouyou.stablejs.StableJs
+name: momojs
+main: moe.kouyou.momojs.MomoJs
 version: 1.0.0
 load: STARTUP
 author: kouyoux

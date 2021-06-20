@@ -6,7 +6,7 @@ plugins {
 group 'moe.kouyou'
 version '1.0.0'
 
-archivesBaseName = 'stablejs'
+archivesBaseName = 'momojs'
 
 repositories {
   mavenLocal()
@@ -22,7 +22,7 @@ dependencies {
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(16)
+    languageVersion = JavaLanguageVersion.of(15)
   }
 }
 

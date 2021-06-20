@@ -1,4 +1,4 @@
-package moe.kouyou.stablejs;
+package moe.kouyou.momojs;
 
 import org.openjdk.nashorn.api.scripting.NashornScriptEngineFactory;
 
@@ -6,7 +6,7 @@ import javax.script.ScriptEngine;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProxyScriptEngineFactory implements javax.script.ScriptEngineFactory{
+public final class ProxyScriptEngineFactory implements javax.script.ScriptEngineFactory{
   
   private static final NashornScriptEngineFactory factory = new NashornScriptEngineFactory();
   
