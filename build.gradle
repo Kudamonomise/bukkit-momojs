@@ -1,0 +1,43 @@
+plugins {
+  id 'java'
+  id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+group 'moe.kouyou'
+version '1.0.0'
+
+archivesBaseName = 'stablejs'
+
+repositories {
+  mavenLocal()
+  maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+  maven { url 'https://hub.spigotmc.org/nexus/content/repositories/public/' }
+}
+
+dependencies {
+  implementation 'org.openjdk.nashorn:nashorn-core:15.2'
+  implementation 'org.ow2.asm:asm:7.3.1'
+  compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+}
+
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(16)
+  }
+}
+
+compileJava {
+  options.incremental = false
+  options.encoding = 'UTF-8'
+}
+
+shadowJar {
+  dependencies {
+    include dependency('org.openjdk.nashorn:nashorn-core:15.2')
+    include dependency('org.ow2.asm:asm:7.3.1')
+  }
+  relocate 'org.openjdk.nashorn', '__lib.nashorn'
+  relocate 'org.objectweb.asm', '__lib.asm'
+}
+
+build.dependsOn shadowJar

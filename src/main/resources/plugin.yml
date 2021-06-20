@@ -1,0 +1,5 @@
+name: stablejs
+main: moe.kouyou.stablejs.StableJs
+version: 1.0.0
+load: STARTUP
+author: kouyoux
