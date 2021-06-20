@@ -17,6 +17,9 @@ repositories {
 dependencies {
   implementation 'org.openjdk.nashorn:nashorn-core:15.2'
   implementation 'org.ow2.asm:asm:7.3.1'
+  implementation 'org.ow2.asm:asm-commons:7.3.1'
+  implementation 'org.ow2.asm:asm-tree:7.3.1'
+  implementation 'org.ow2.asm:asm-util:7.3.1'
   compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
 }
 
@@ -35,6 +38,9 @@ shadowJar {
   dependencies {
     include dependency('org.openjdk.nashorn:nashorn-core:15.2')
     include dependency('org.ow2.asm:asm:7.3.1')
+    include dependency('org.ow2.asm:asm-commons:7.3.1')
+    include dependency('org.ow2.asm:asm-tree:7.3.1')
+    include dependency('org.ow2.asm:asm-util:7.3.1')
   }
   relocate 'org.openjdk.nashorn', '__lib.nashorn'
   relocate 'org.objectweb.asm', '__lib.asm'
