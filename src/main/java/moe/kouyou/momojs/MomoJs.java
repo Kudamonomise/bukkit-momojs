@@ -101,6 +101,7 @@ public final class MomoJs extends JavaPlugin{
   
   @Override
   public void onEnable(){
+    new Metrics(this, 12022);
     try{
       getLogger().info("js engine provider is enabled");
       System.out.println(new ScriptEngineManager().getEngineByName("nashorn"));
