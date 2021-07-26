@@ -1,5 +1,7 @@
 name: momojs
 main: moe.kouyou.momojs.MomoJs
-version: 1.0.0
+version: 1.0.3
+description: provide js engine
 load: STARTUP
 author: kouyoux
+api-version: 1.16

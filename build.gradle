@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'moe.kouyou'
-version '1.0.1'
+version '1.0.3'
 
 archivesBaseName = 'momojs'
 
@@ -12,10 +12,6 @@ repositories {
   mavenLocal()
   maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
   maven { url 'https://hub.spigotmc.org/nexus/content/repositories/public/' }
-  maven {
-    url 'https://repo.maven.apache.org/maven2'
-    name 'Maven Central'
-  }
 }
 
 dependencies {
@@ -36,14 +32,14 @@ compileJava {
 
 shadowJar {
   dependencies {
-    include dependency('org.openjdk.nashorn:nashorn-core:15.2')
+    include dependency('org.openjdk.nashorn:nashorn-core:15.3')
     include dependency('org.ow2.asm:asm:7.3.1')
     include dependency('org.ow2.asm:asm-commons:7.3.1')
     include dependency('org.ow2.asm:asm-tree:7.3.1')
     include dependency('org.ow2.asm:asm-util:7.3.1')
   }
-  relocate 'org.openjdk.nashorn', '__lib.nashorn'
-  relocate 'org.objectweb.asm', '__lib.asm'
+  relocate 'org.openjdk.nashorn', '__momolib.js.nashorn'
+  relocate 'org.objectweb.asm', '__momolib.js.asm'
 }
 
 build.dependsOn shadowJar
