@@ -38,7 +38,7 @@ shadowJar {
     include dependency('org.ow2.asm:asm-tree:7.3.1')
     include dependency('org.ow2.asm:asm-util:7.3.1')
   }
-  relocate 'org.openjdk.nashorn', '__momolib.js.nashorn'
+  relocate 'org.openjdk.nashorn', 'jdk.nashorn'
   relocate 'org.objectweb.asm', '__momolib.js.asm'
 }
 
